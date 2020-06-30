@@ -4,16 +4,18 @@ import Counter from "./counter"
 class CounterList extends Component {
 
     render() { 
+
+        const { onReset, counters, onDelete, onIncrement } = this.props;
         return (
             <React.Fragment>
-                <button onClick={this.props.onReset} className="btn btn-primary btn-sm m-2">Reset</button><br />
+                <button onClick={onReset} className="btn btn-primary btn-sm m-2">Reset</button><br />
                 {
-                    this.props.counters.map(
+                    counters.map(
                         counter => 
                         <Counter
                             key={counter.id}
-                            onDelete={this.props.onDelete}
-                            onIncrement={this.props.onIncrement}
+                            onDelete={onDelete}
+                            onIncrement={onIncrement}
                             counterObj = {counter}
                         />
                     )
