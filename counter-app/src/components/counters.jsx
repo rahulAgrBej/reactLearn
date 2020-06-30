@@ -9,16 +9,19 @@ class CounterList extends Component {
             {id: 3, value: 0},
             {id: 4, value: 0},
         ]
-    }
+    };
+
+    handleDelete() {
+        console.log("event handler called")
+    };
+
     render() { 
         return (
             <React.Fragment>
                 {
                     this.state.counters.map(
                         counter => 
-                        <Counter key={counter.id} value={counter.value}>
-                            <h4>Counter #{counter.id}</h4>
-                        </Counter>
+                        <Counter key={counter.id} value={counter.value} id={counter.id} onDelete={this.handleDelete} />
                     )
                 }
             </React.Fragment>
